@@ -46,7 +46,7 @@ public class ClazzServiceImpl implements ClazzService {
             clazz.setStatus(status);
         });
         PageInfo<Clazz> pageInfo = new PageInfo<>(list);
-        return new PageResult<Clazz>(pageInfo.getTotal(), pageInfo.getList());
+        return new PageResult<>(pageInfo.getTotal(), pageInfo.getList());
     }
 
     @Override
