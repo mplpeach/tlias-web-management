@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/students")
@@ -38,6 +41,15 @@ public class StudentController {
     public Result update(@RequestBody Student student) {
         log.info("更新学生，数据：{}", student);
         studentService.update(student);
+        return Result.success();
+    }
+
+    @DeleteMapping("{ids}")
+    public Result delete(@PathVariable String ids) {
+        log.info("删除学生，ids：{}", ids);
+        String[] split = ids.split(",");
+        List<Integer> list = Arrays.stream(split).map(Integer::parseInt).toList();
+        studentService.deleteByIds(list);
         return Result.success();
     }
 }

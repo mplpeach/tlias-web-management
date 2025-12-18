@@ -42,4 +42,6 @@ public interface StudentMapper {
      * @param student 学生信息
      */
     void updateById(Student student);
+
+    void deleteByIds(List<Integer> ids);
 }

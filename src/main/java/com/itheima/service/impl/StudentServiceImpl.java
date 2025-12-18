@@ -9,6 +9,7 @@ import com.itheima.service.ClazzService;
 import com.itheima.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -54,5 +55,12 @@ public class StudentServiceImpl implements StudentService {
     public void update(Student student) {
         student.setUpdateTime(LocalDateTime.now());
         studentMapper.updateById(student);
+    }
+
+    @Override
+    public void deleteByIds(List<Integer> ids) {
+        if (!CollectionUtils.isEmpty(ids)) {
+            studentMapper.deleteByIds(ids);
+        }
     }
 }
