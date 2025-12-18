@@ -39,4 +39,10 @@ public interface ClazzMapper {
      */
     @Delete("delete from clazz where id = #{id}")
     void deleteById(Integer id);
+
+    /**
+     * 查询所有班级信息
+     */
+    @Select("select * from clazz")
+    List<Clazz> list();
 }

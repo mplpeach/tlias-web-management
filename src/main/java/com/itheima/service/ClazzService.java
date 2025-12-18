@@ -5,6 +5,8 @@ import com.itheima.pojo.ClazzQueryParam;
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.PageResult;
 
+import java.util.List;
+
 public interface ClazzService {
     /**
      * 分页查询
@@ -20,4 +22,5 @@ public interface ClazzService {
 
     void deleteById(Integer id);
 
+    List<Clazz> list();
 }
