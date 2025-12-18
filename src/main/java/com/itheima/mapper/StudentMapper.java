@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface StudentMapper {
     /**
-     * 根据班级id查询班级信息
+     * 根据班级id查询该班级是否有学生
      * @param clazzId 班级id
      */
     @Select("select 1 from student where clazz_id = #{clazzId} limit 1")
@@ -36,4 +36,10 @@ public interface StudentMapper {
      */
     @Select("select * from student where id = #{id}")
     Student findById(Integer id);
+
+    /**
+     * 根据id更新学生信息
+     * @param student 学生信息
+     */
+    void updateById(Student student);
 }

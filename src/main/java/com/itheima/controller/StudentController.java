@@ -33,4 +33,11 @@ public class StudentController {
         Student student = studentService.findById(id);
         return Result.success(student);
     }
+
+    @PutMapping
+    public Result update(@RequestBody Student student) {
+        log.info("更新学生，数据：{}", student);
+        studentService.update(student);
+        return Result.success();
+    }
 }
