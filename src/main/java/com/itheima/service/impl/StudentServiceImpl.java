@@ -5,13 +5,11 @@ import com.github.pagehelper.PageInfo;
 import com.itheima.mapper.ClazzMapper;
 import com.itheima.mapper.StudentMapper;
 import com.itheima.pojo.*;
-import com.itheima.service.ClazzService;
 import com.itheima.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -62,5 +60,14 @@ public class StudentServiceImpl implements StudentService {
         if (!CollectionUtils.isEmpty(ids)) {
             studentMapper.deleteByIds(ids);
         }
+    }
+
+    @Override
+    public void addViolation(Integer id, Integer score) {
+        Student student = studentMapper.findById(id);
+        student.setViolationCount((short)(student.getViolationCount() + 1));
+        student.setViolationScore((short)(student.getViolationScore() + score));
+        student.setUpdateTime(LocalDateTime.now());
+        studentMapper.updateById(student);
     }
 }

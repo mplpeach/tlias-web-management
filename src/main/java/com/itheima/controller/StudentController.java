@@ -52,4 +52,11 @@ public class StudentController {
         studentService.deleteByIds(list);
         return Result.success();
     }
+
+    @PutMapping("/violation/{id}/{score}")
+    public Result addViolation(@PathVariable Integer id, @PathVariable Integer score) {
+        log.info("学生{},增加违纪次数,扣分:{}", id, score);
+        studentService.addViolation(id, score);
+        return Result.success();
+    }
 }

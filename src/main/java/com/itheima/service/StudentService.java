@@ -1,6 +1,5 @@
 package com.itheima.service;
 
-import com.itheima.pojo.Clazz;
 import com.itheima.pojo.PageResult;
 import com.itheima.pojo.Student;
 import com.itheima.pojo.StudentQueryParam;
@@ -19,4 +18,6 @@ public interface StudentService {
     void update(Student student);
 
     void deleteByIds(List<Integer> list);
+
+    void addViolation(Integer id, Integer score);
 }
