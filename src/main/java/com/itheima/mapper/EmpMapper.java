@@ -47,5 +47,11 @@ public interface EmpMapper {
      * 查询所有员工信息
      */
     @Select("select * from emp")
-    List<Emp> list();
+    List<Emp> selectAll();
+
+    /**
+     * 根据用户名和密码查询员工信息
+     */
+    @Select("select id, username, name from emp where username = #{username} and password = #{password}")
+    Emp selectByUsernameAndPassword(Emp emp);
 }

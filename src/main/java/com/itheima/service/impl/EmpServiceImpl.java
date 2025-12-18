@@ -96,6 +96,12 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public List<Emp> list() {
-        return empMapper.list();
+        return empMapper.selectAll();
+    }
+
+    @Override
+    public LoginInfo login(Emp emp) {
+        Emp e = empMapper.selectByUsernameAndPassword(emp);
+        return e != null ? new LoginInfo(e.getId(), e.getUsername(), e.getName(), "") : null;
     }
 }

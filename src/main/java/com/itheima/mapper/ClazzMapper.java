@@ -44,5 +44,5 @@ public interface ClazzMapper {
      * 查询所有班级信息
      */
     @Select("select * from clazz")
-    List<Clazz> list();
+    List<Clazz> selectAll();
 }

@@ -78,6 +78,6 @@ public class ClazzServiceImpl implements ClazzService {
 
     @Override
     public List<Clazz> list() {
-        return clazzMapper.list();
+        return clazzMapper.selectAll();
     }
 }

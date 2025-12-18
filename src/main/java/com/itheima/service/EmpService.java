@@ -2,6 +2,7 @@ package com.itheima.service;
 
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.EmpQueryParam;
+import com.itheima.pojo.LoginInfo;
 import com.itheima.pojo.PageResult;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,4 +30,6 @@ public interface EmpService {
     Emp findById(Integer id);
 
     List<Emp> list();
+
+    LoginInfo login(Emp emp);
 }
