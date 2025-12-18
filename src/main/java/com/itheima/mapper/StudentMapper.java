@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface StudentMapper {
@@ -43,5 +44,20 @@ public interface StudentMapper {
      */
     void updateById(Student student);
 
+    /**
+     * 根据id批量删除学生信息
+     * @param ids 学生id
+     */
     void deleteByIds(List<Integer> ids);
+
+    /**
+     * 查询班级人数
+     */
+    List<Map<String, Object>> countStudentData();
+
+
+    /**
+     * 查询学历人数
+     */
+    List<Map<String, Object>> countStudentDegreeData();
 }

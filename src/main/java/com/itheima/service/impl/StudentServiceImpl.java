@@ -67,7 +67,6 @@ public class StudentServiceImpl implements StudentService {
         Student student = studentMapper.findById(id);
         student.setViolationCount((short)(student.getViolationCount() + 1));
         student.setViolationScore((short)(student.getViolationScore() + score));
-        student.setUpdateTime(LocalDateTime.now());
         studentMapper.updateById(student);
     }
 }
