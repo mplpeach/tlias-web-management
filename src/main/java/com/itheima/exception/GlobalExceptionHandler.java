@@ -30,4 +30,10 @@ public class GlobalExceptionHandler {
         log.error("删除班级因还有学生出错！！！" + e.getMessage());
         return Result.error(e.getMessage());
     }
+
+    @ExceptionHandler
+    public Result handleDeptHasEmpException(DeptHasEmpException e) {
+        log.error("删除部门因还有员工出错！！！" + e.getMessage());
+        return Result.error(e.getMessage());
+    }
 }

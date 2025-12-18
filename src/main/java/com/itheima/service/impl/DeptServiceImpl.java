@@ -1,5 +1,6 @@
 package com.itheima.service.impl;
 
+import com.itheima.exception.DeptHasEmpException;
 import com.itheima.mapper.DeptMapper;
 import com.itheima.pojo.Dept;
 import com.itheima.service.DeptService;
@@ -21,6 +22,10 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public void deleteById(Integer id) {
+        boolean exists = deptMapper.existsByEmpId(id) != null;
+        if (exists) {
+            throw new DeptHasEmpException();
+        }
         deptMapper.deleteById(id);
     }
 
